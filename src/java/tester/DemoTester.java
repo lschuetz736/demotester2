@@ -97,35 +97,31 @@ public class DemoTester{
         // command pattern: command path address time
         
         if (args.length == 0){
-            new CmdDialog().printNoArguments();
             return 2;
         } else if (args.length < 4){
-            new CmdDialog().printLackOfArguments();
             return 3;
         }
 
         command = args[0];
         if (command.matches("takeScreenshots") == false && command.matches("compareScreenshots") == false){
-            new CmdDialog().printInvalidCommand();
             return 4;
         }
         
         demoDirectory= args[1];
         Path path = Paths.get(demoDirectory);
         if (Files.exists(path) == false){
-            new CmdDialog().printPathDoesNotExist();
             return 5;
         }
         
         addressBegin = args[2]; 
         if (addressBegin.matches("default")){
-            addressBegin = "http://localhost:8888/webapp/demos/";
+            addressBegin = "http://localhost:8888/webapp/controlsamples/";
         }
 
         time = args[3];
         if (time.matches("default")){
             ms = 3000;
-        } else if (time.matches("[0-9]{1,5}") && time.matches("default") == false){
+        } else if (time.matches("[0-9]{1,5}") == false && time.matches("default") == false){
             return 6;
         } else {
             ms = Integer.parseInt(time);
@@ -168,7 +164,7 @@ public class DemoTester{
 
                 String address = addressBegin + name;
                 
-                Browser browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(true).setSlowMo(50));
+                Browser browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
                 BrowserContext context = browser.newContext();
                 Page page = context.newPage();
                 page.navigate(address);
