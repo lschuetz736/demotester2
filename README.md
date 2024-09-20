@@ -4,7 +4,7 @@
 
 This is a tool to test the demos for WebForJ. It navigates into the project which contains the demo files and automatically starts each demo by opening it in the Browser. It then either takes a screenshot of every site when given the argument "takeScreenshots" or compares every saved screenshot to the site and declares wether it was successfull (if the screenshot matches the site) or not (when it does not) and saves the results in the data.txt when given the argument "compareScreenshots".  
 
-### Getting started
+## Getting started
 
 1. Make sure the "webforj-docs-example"-project is running in its docker container 
 2. Download this project and place it at any location of your folder system
