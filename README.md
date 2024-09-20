@@ -14,7 +14,7 @@ This is a tool to test the demos for WebForJ. It navigates into the project whic
     - mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
 5. Start the program with this command: mvn compile exec:java -D exec.mainClass="src.java.tester.DemoTester" -D exec.args="your arguments"<br>
 
-## Arguments
+# Arguments
     Arguments syntax: command path address time
     Command: "takeScreenshots" or "compareScreenshots"
     Path: The path of the project which contains the demos
@@ -25,7 +25,7 @@ This is a tool to test the demos for WebForJ. It navigates into the project whic
 
     Example: mvn compile -e exec:java -D exec.mainClass="src.java.tester.DemoTester" -D exec.args="takeScreenshots C:\Projects\webforj-docs-samples default 5000"
 
-## Further useful information
+# Further useful information
 
     This program was designed to run in the GitHub ubuntu runner for automatically testing the WebForJ demos every time someone pushes to the webforj-docs-samples project which you can find here: https://github.com/webforj/webforj-docs-samples. A yml was created in a forked version which you can find here: https://github.com/lschuetz736/webforj-docs-samples/tree/master. However you can also run this program on your machine to take or compare screenshots but make sure that the webforj-docs-samples project is running in its docker container, it is not recommended to run the project without its docker container if you run it locally.
 
